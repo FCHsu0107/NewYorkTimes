@@ -178,9 +178,7 @@
 		B9BAF75E26F123B200F80E54 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B9BAF76126F1298000F80E54 /* Book.swift */,
-				B9BAF76F26F1322000F80E54 /* BookProvider.swift */,
-				B9BAF77126F1324C00F80E54 /* BookRequest.swift */,
+				B9BAF77526F1387900F80E54 /* Book */,
 				B9BAF77326F1329700F80E54 /* APIContent.swift */,
 				B9BAF76326F12A9000F80E54 /* APIModel.swift */,
 			);
@@ -217,6 +215,16 @@
 				B9BAF76D26F130EE00F80E54 /* ListBookCell.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		B9BAF77526F1387900F80E54 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				B9BAF76126F1298000F80E54 /* Book.swift */,
+				B9BAF76F26F1322000F80E54 /* BookProvider.swift */,
+				B9BAF77126F1324C00F80E54 /* BookRequest.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
