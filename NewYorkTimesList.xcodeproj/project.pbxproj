@@ -21,6 +21,9 @@
 		B9BAF76826F12B5400F80E54 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF76726F12B5400F80E54 /* BookListViewController.swift */; };
 		B9BAF76A26F12EEE00F80E54 /* TableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF76926F12EEE00F80E54 /* TableView+Ext.swift */; };
 		B9BAF76E26F130EE00F80E54 /* ListBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF76D26F130EE00F80E54 /* ListBookCell.swift */; };
+		B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF76F26F1322000F80E54 /* BookProvider.swift */; };
+		B9BAF77226F1324C00F80E54 /* BookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF77126F1324C00F80E54 /* BookRequest.swift */; };
+		B9BAF77426F1329700F80E54 /* APIContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF77326F1329700F80E54 /* APIContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		B9BAF76726F12B5400F80E54 /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		B9BAF76926F12EEE00F80E54 /* TableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Ext.swift"; sourceTree = "<group>"; };
 		B9BAF76D26F130EE00F80E54 /* ListBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBookCell.swift; sourceTree = "<group>"; };
+		B9BAF76F26F1322000F80E54 /* BookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProvider.swift; sourceTree = "<group>"; };
+		B9BAF77126F1324C00F80E54 /* BookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRequest.swift; sourceTree = "<group>"; };
+		B9BAF77326F1329700F80E54 /* APIContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				B9BAF76126F1298000F80E54 /* Book.swift */,
+				B9BAF76F26F1322000F80E54 /* BookProvider.swift */,
+				B9BAF77126F1324C00F80E54 /* BookRequest.swift */,
+				B9BAF77326F1329700F80E54 /* APIContent.swift */,
 				B9BAF76326F12A9000F80E54 /* APIModel.swift */,
 			);
 			path = API;
@@ -341,13 +350,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9BAF76E26F130EE00F80E54 /* ListBookCell.swift in Sources */,
+				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
 				B9BAF72C26F120A800F80E54 /* ViewController.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
 				B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */,
 				B9BAF76226F1298000F80E54 /* Book.swift in Sources */,
 				B9BAF76426F12A9000F80E54 /* APIModel.swift in Sources */,
 				B9BAF76A26F12EEE00F80E54 /* TableView+Ext.swift in Sources */,
+				B9BAF77426F1329700F80E54 /* APIContent.swift in Sources */,
 				B9BAF75A26F1228F00F80E54 /* HTTPClient.swift in Sources */,
+				B9BAF77226F1324C00F80E54 /* BookRequest.swift in Sources */,
 				B9BAF76826F12B5400F80E54 /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
