@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
     }
 
     private func setUpMainWindow() {
-        let vc = UINavigationController(rootViewController: ViewController())
+        let vc = UINavigationController(rootViewController: BookListViewController())
         window?.makeKeyAndVisible()
         window?.rootViewController = vc
     }
