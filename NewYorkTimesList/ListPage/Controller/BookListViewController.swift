@@ -42,6 +42,14 @@ class BookListViewController: UIViewController {
         
         tableView.dataSource = self
         
+        tableView.separatorStyle = .none
+        
+        tableView.allowsSelection = false
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.estimatedRowHeight = 60
+        
         tableView.register(cellType: ListBookCell.self)
         
         return tableView
