@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
-		B9BAF72C26F120A800F80E54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72B26F120A800F80E54 /* ViewController.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
 		B9BAF73F26F120AB00F80E54 /* NewYorkTimesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */; };
@@ -46,10 +45,9 @@
 /* Begin PBXFileReference section */
 		B9BAF72426F120A800F80E54 /* NewYorkTimesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF72726F120A800F80E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9BAF72B26F120A800F80E54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B9BAF73026F120AB00F80E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9BAF73326F120AB00F80E54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B9BAF73526F120AB00F80E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9BAF73526F120AB00F80E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "NewYorkTimesList/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		B9BAF73A26F120AB00F80E54 /* NewYorkTimesListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewYorkTimesListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesListTests.swift; sourceTree = "<group>"; };
 		B9BAF74026F120AB00F80E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9890B5226F3A25100CECF45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */,
+				B9BAF75F26F124E600F80E54 /* keys.plist */,
+				B9BAF73526F120AB00F80E54 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B9BAF71B26F120A800F80E54 = {
 			isa = PBXGroup;
 			children = (
@@ -122,11 +130,8 @@
 				B9BAF76B26F130B400F80E54 /* View */,
 				B9BAF76526F12B1E00F80E54 /* Controller */,
 				B9BAF72726F120A800F80E54 /* AppDelegate.swift */,
-				B9BAF72B26F120A800F80E54 /* ViewController.swift */,
 				B9BAF73026F120AB00F80E54 /* Assets.xcassets */,
-				B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */,
-				B9BAF75F26F124E600F80E54 /* keys.plist */,
-				B9BAF73526F120AB00F80E54 /* Info.plist */,
+				B9890B5226F3A25100CECF45 /* Supporting Files */,
 			);
 			path = NewYorkTimesList;
 			sourceTree = "<group>";
@@ -359,7 +364,6 @@
 			files = (
 				B9BAF76E26F130EE00F80E54 /* ListBookCell.swift in Sources */,
 				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
-				B9BAF72C26F120A800F80E54 /* ViewController.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
 				B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */,
 				B9BAF76226F1298000F80E54 /* Book.swift in Sources */,
@@ -538,7 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R66LF8J636;
-				INFOPLIST_FILE = NewYorkTimesList/Info.plist;
+				INFOPLIST_FILE = "NewYorkTimesList/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R66LF8J636;
-				INFOPLIST_FILE = NewYorkTimesList/Info.plist;
+				INFOPLIST_FILE = "NewYorkTimesList/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
