@@ -63,10 +63,6 @@ struct BookResult {
 
 class BookListPresenter {
     
-    private var initalItems = [BookItem]()
-    
-    private var initalBookDidComplete = false
-    
     private let provider: BookProviderProtocol
     
     private var page: Int = 0
@@ -79,18 +75,6 @@ class BookListPresenter {
         
         self.provider = provider
     }
-
-//    func numberOfItems() -> Int {
-//
-//        return items.count
-//    }
-//
-//    func bookItem(at row: Int) -> BookItem {
-//
-//        assert(row >= 0 && row < items.count)
-//
-//        return items[row]
-//    }
 }
 
 extension BookListPresenter {
