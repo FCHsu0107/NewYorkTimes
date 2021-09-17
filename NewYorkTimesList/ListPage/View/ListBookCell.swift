@@ -24,8 +24,6 @@ class ListBookCell: UITableViewCell {
         
         label.textColor = FontType.title.color
         
-        label.text = "A DOG NAMED LEAF"
-        
         return label
     }()
     
@@ -36,8 +34,6 @@ class ListBookCell: UITableViewCell {
         label.font = TT.font(.secondary)
         
         label.textColor = FontType.secondary.color
-        
-        label.text = "Allen Anderson with Linda Anderson"
         
         return label
     }()
@@ -52,8 +48,6 @@ class ListBookCell: UITableViewCell {
         
         label.numberOfLines = 0
         
-        label.text = "A man in medical distress and his adopted cocker spaniel face life's challenges together."
-        
         return label
     }()
     
@@ -64,8 +58,6 @@ class ListBookCell: UITableViewCell {
         label.font = TT.font(.secondary)
         
         label.textColor = FontType.paragraph.color
-        
-        label.text = " L 15.0  "
         
         return label
     }()
@@ -82,6 +74,17 @@ class ListBookCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func config(_ book: BookItem) {
+        
+        self.titleLabel.text = book.title
+        
+        self.authorLabel.text = book.author
+        
+        self.descriptionLabel.text = (book.showPartDescription) ? book.previusPartOfDescription : book.description
+        
+        self.priceLabel.text = " " + book.price + " "
     }
     
     private func setUpUI() {

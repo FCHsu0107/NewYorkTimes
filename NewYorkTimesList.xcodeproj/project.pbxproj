@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9890B5426F3A4BC00CECF45 /* BookListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5326F3A4BC00CECF45 /* BookListProvider.swift */; };
+		B9890B5426F3A4BC00CECF45 /* BookListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5326F3A4BC00CECF45 /* BookListPresenter.swift */; };
 		B9890B5826F3C5BB00CECF45 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5726F3C5BB00CECF45 /* ShadowView.swift */; };
 		B9890B5A26F3C5EF00CECF45 /* TheTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5926F3C5EF00CECF45 /* TheTheme.swift */; };
 		B9890B5C26F3CC7600CECF45 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5B26F3CC7600CECF45 /* BadgeView.swift */; };
@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B9890B5326F3A4BC00CECF45 /* BookListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListProvider.swift; sourceTree = "<group>"; };
+		B9890B5326F3A4BC00CECF45 /* BookListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListPresenter.swift; sourceTree = "<group>"; };
 		B9890B5726F3C5BB00CECF45 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = ../../../../../../ShadowView.swift; sourceTree = "<group>"; };
 		B9890B5926F3C5EF00CECF45 /* TheTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTheme.swift; sourceTree = "<group>"; };
 		B9890B5B26F3CC7600CECF45 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				B9BAF76726F12B5400F80E54 /* BookListViewController.swift */,
-				B9890B5326F3A4BC00CECF45 /* BookListProvider.swift */,
+				B9890B5326F3A4BC00CECF45 /* BookListPresenter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 				B9BAF76E26F130EE00F80E54 /* ListBookCell.swift in Sources */,
 				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
-				B9890B5426F3A4BC00CECF45 /* BookListProvider.swift in Sources */,
+				B9890B5426F3A4BC00CECF45 /* BookListPresenter.swift in Sources */,
 				B9890B6426F497C000CECF45 /* HTTPClientProtocol.swift in Sources */,
 				B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */,
 				B9BAF76226F1298000F80E54 /* Book.swift in Sources */,

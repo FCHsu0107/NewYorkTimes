@@ -13,12 +13,55 @@ class BookListViewController: UIViewController {
         
         initTableView()
     }()
-
+    
+    let presenter: BookListPresenter
+    
+    private var isLoading: Bool = false
+    
+    private let threshold: CGFloat = UIScreen.main.bounds.height / 3
+    
+//    deinit { print("\(self.className) deint") }
+    
+    init(presenter: BookListPresenter = BookListPresenter()) {
+        
+        self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+        
+        isLoading = true
+        
+        presenter.fetchNextBooks { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            self.isLoading = false
+            
+            switch result.hasBooks {
+            
+            case true:
+                
+                self.items = result.bookItems
+                
+                self.reloadData()
+                
+            case false:
+                
+                self.showMessage(result.errorMessage)
+            }
+        }
     }
+    
+    var items: [BookItem] = []
     
     private func setUpUI() {
         
@@ -56,19 +99,101 @@ class BookListViewController: UIViewController {
         
         return tableView
     }
+    
+    private func reloadData() {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func append() {
+        
+    }
+    
+    private func showMessage(_ message: String?) {
+        // TODO
+    }
+    
+    private func loadMoreData() {
+        isLoading = true
+        presenter.fetchNextBooks { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            self.isLoading = false
+            
+            switch result.hasBooks {
+            
+            case true:
+                
+                let firstIndex = self.items.count
+                
+                var indexPaths: [IndexPath] = []
+                
+                self.items += result.bookItems
+                
+                for i in firstIndex..<self.items.count {
+                    
+                    indexPaths.append(IndexPath(row: i, section: 0))
+                }
+                
+                self.insertRows(indexPaths: indexPaths)
+                
+            case false:
+                
+                self.showMessage(result.errorMessage)
+            }
+        }
+    }
+    
+    private func insertRows(indexPaths: [IndexPath]) {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let self = self else { return }
+            
+            self.tableView.performBatchUpdates( { [weak self] in
+                
+                guard let self = self else { return }
+                
+                self.tableView.insertRows(at: indexPaths, with: .none)
+                
+            }, completion: nil)
+        }
+    }
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let item = items[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(ListBookCell.self, for: indexPath)
+        
+        cell.config(item)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return items.count
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        if !isLoading && ((maximumOffset - offsetY) < threshold) {
+            
+            loadMoreData()
+        }
     }
 }

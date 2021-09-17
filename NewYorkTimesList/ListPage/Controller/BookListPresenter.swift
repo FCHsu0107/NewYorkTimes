@@ -1,5 +1,5 @@
 //
-//  BookListProvider.swift
+//  BookListPresenter.swift
 //  NewYorkTimesList
 //
 //  Created by Fu-Chiung HSU on 2021/9/16.
@@ -61,9 +61,11 @@ struct BookResult {
     }
 }
 
-class BookListProvider {
+class BookListPresenter {
     
-    private var items = [BookItem]()
+    private var initalItems = [BookItem]()
+    
+    private var initalBookDidComplete = false
     
     private let provider: BookProviderProtocol
     
@@ -78,69 +80,23 @@ class BookListProvider {
         self.provider = provider
     }
 
-    func numberOfItems() -> Int {
-        
-        return items.count
-    }
-
-    func bookItem(at row: Int) -> BookItem {
-        
-        assert(row >= 0 && row < items.count)
-
-        return items[row]
-    }
+//    func numberOfItems() -> Int {
+//
+//        return items.count
+//    }
+//
+//    func bookItem(at row: Int) -> BookItem {
+//
+//        assert(row >= 0 && row < items.count)
+//
+//        return items[row]
+//    }
 }
 
-extension BookListProvider {
+extension BookListPresenter {
+
     
-    func getInitialBooks(completion: @escaping (BookResult) -> Void) {
-        
-        items = []
-        
-        var page = 0
-    
-        var items: [BookItem] = []
-        
-        func fetchBooks() {
-            provider.getList(page: page) { [weak self] result in
-                
-                guard let self = self else { return }
-                
-                switch result {
-                
-                case .failure(let error):
-                    
-                    completion(BookResult.errorResult(message: error.message))
-                    
-                case .success(let books):
-                    
-                    if page == 0 {
-                        
-                        self.updateMaxPage(books.numResults)
-                    }
-                    
-                    let newItems = self.makeItems(books: books.results)
-                    
-                    items += newItems
-                    
-                    page += 1
-                    
-                    let fetchNextPage: Bool = page < 3 && page <= self.maxPage
-                    
-                    if fetchNextPage {
-                        
-                        fetchBooks()
-                    } else {
-                        self.updatePage(page)
-                        
-                        completion(BookResult(bookItems: items))
-                    }
-                }
-            }
-        }
-    }
-    
-    func fetchNextBook(completion: @escaping (BookResult) -> Void) {
+    func fetchNextBooks(completion: @escaping (BookResult) -> Void) {
         
         provider.getList(page: page) { [weak self] result in
             
@@ -153,6 +109,11 @@ extension BookListProvider {
                 completion(BookResult.errorResult(message: error.message))
                 
             case .success(let books):
+                
+                if self.page == 0 {
+
+                    self.updateMaxPage(books.numResults)
+                }
                 
                 let newItems = self.makeItems(books: books.results)
                 
