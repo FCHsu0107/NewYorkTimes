@@ -11,44 +11,74 @@ public protocol LoginPageViewModelInput {
     
     func checkStatus() -> Bool
     
-    func login(userName: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func supportBiometrics() -> Bool
+    
+    func login(userName: String, password: String)
+    
+    func loginWithBiometrics()
 }
 
 public protocol LoginPageViewModelOutput {
     
     var loginDidSucced: (() -> Void)? { get set }
+    
+    var errorDidRevice: ((_ message: String) -> Void)? { get set }
 }
 
 public final class LoginPageViewModel: LoginPageViewModelOutput {
     
     public var loginDidSucced: (() -> Void)?
     
-    init() {}
+    public var errorDidRevice: ((_ message: String) -> Void)?
     
+    private let manager: LoginManager
+    
+    init(manager: LoginManager = LoginManager()) {
+        
+        self.manager = manager
+    }
 }
 
 extension LoginPageViewModel: LoginPageViewModelInput {
-    
     public func checkStatus() -> Bool {
         
         return false
     }
     
-    public func login(userName: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        // Check data with server //
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+    public func supportBiometrics() -> Bool {
+        
+        manager.supportBiometrics()
+    }
+    
+    public func login(userName: String, password: String) {
+        
+        manager.login(userName: userName, password: password) { [weak self] result in
             
-            guard let self = self else { return }
+            self?.loginResultDidRevice(result: result)
+        }
+    }
+    
+    public func loginWithBiometrics() {
+        
+        manager.authenticateWithBiometrics { [weak self] result in
             
-            if userName == "AAA", password == "123" {
+            self?.loginResultDidRevice(result: result)
+        }
+    }
+    
+    private func loginResultDidRevice(result: Result<Bool, Error>) {
+        
+        switch result {
+        case .failure(let error):
+            self.errorDidRevice?(error.localizedDescription)
+            
+        case .success(let sucess):
+            if sucess {
                 
-                completion(Result.success(true))
                 self.loginDidSucced?()
             } else {
                 
-                let info = [NSLocalizedDescriptionKey: "Wrong user name or password!"]
-                let error = NSError(domain: "nytimes.com", code: -100, userInfo: info)
-                completion(.failure(error))
+                self.errorDidRevice?("Something went wrong!")
             }
         }
     }
