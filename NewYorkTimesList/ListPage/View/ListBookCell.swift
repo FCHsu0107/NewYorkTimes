@@ -51,15 +51,15 @@ class ListBookCell: UITableViewCell {
         return label
     }()
     
-    var priceLabel: BadgeLabel = {
+    var priceLabel: BadgeView = {
         
-        let label = BadgeLabel()
+        let view = BadgeView()
         
-        label.font = TT.font(.secondary)
+        view.label.font = TT.font(.secondary)
         
-        label.textColor = FontType.paragraph.color
+        view.label.textColor = FontType.paragraph.color
         
-        return label
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -84,7 +84,7 @@ class ListBookCell: UITableViewCell {
         
         self.descriptionLabel.text = (book.showPartDescription) ? book.previusPartOfDescription : book.description
         
-        self.priceLabel.text = " " + book.price + " "
+        self.priceLabel.label.text = book.price
     }
     
     private func setUpUI() {

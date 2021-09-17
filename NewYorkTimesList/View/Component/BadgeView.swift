@@ -7,8 +7,10 @@
 
 import UIKit
 
-class BadgeLabel: UILabel {
+class BadgeView: UIView {
 
+    let label: UILabel = UILabel()
+    
     init(bgColor: UIColor = TT.badgeBGColor) {
         super.init(frame: .zero)
         
@@ -27,6 +29,17 @@ class BadgeLabel: UILabel {
         
         layer.cornerRadius = TT.badgeCornerRadius
         
-        textAlignment = .center
+        label.textAlignment = .center
+        
+        addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 2),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:  -2),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)
+        ])
     }
 }
