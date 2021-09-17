@@ -22,7 +22,9 @@ class BookListViewController: UIViewController {
     
     private func setUpUI() {
         
-        view.backgroundColor = .yellow
+        navigationItem.title = "Best Sellers"
+        
+        view.backgroundColor = .white
         
         view.addSubview(tableView)
         

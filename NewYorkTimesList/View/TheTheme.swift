@@ -27,7 +27,7 @@ enum FontType {
         
         case .pageTitle: return 34
             
-        case .button, .title: return 18
+        case .button, .title: return 17
         
         case .paragraph: return 17
             
@@ -38,6 +38,7 @@ enum FontType {
     }
     
     var weight: UIFont.Weight {
+        
         switch self {
         
         case .pageTitle: return .bold
@@ -47,6 +48,20 @@ enum FontType {
         case .secondary: return .regular
             
         case .tertiary: return .regular
+        }
+    }
+    
+    var color: UIColor {
+        
+        switch self {
+        
+        case .pageTitle, .title, .button: return UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+            
+        case .paragraph: return UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+            
+        case .secondary: return UIColor(red: 97 / 255, green: 97 / 255, blue: 97 / 255, alpha: 1.0)
+            
+        case .tertiary: return UIColor(red: 97 / 255, green: 97 / 255, blue: 97 / 255, alpha: 1.0)
         }
     }
 }
@@ -63,7 +78,7 @@ class TT {
     
     static let shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     
-    static let badgeBGColor = UIColor(red: 238 / 255, green: 189 / 255, blue: 65 / 255, alpha: 1.0)
+    static let badgeBGColor = UIColor(red: 248 / 255, green: 207 / 255, blue: 54 / 255, alpha: 1.0)
     
     static let cellBgColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1.0)
     

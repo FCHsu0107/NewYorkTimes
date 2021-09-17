@@ -22,7 +22,9 @@ class ListBookCell: UITableViewCell {
         
         label.font = TT.font(.title)
         
-        label.text = "titleLabel"
+        label.textColor = FontType.title.color
+        
+        label.text = "A DOG NAMED LEAF"
         
         return label
     }()
@@ -33,7 +35,9 @@ class ListBookCell: UITableViewCell {
         
         label.font = TT.font(.secondary)
         
-        label.text = "authorLabel"
+        label.textColor = FontType.secondary.color
+        
+        label.text = "Allen Anderson with Linda Anderson"
         
         return label
     }()
@@ -44,9 +48,11 @@ class ListBookCell: UITableViewCell {
         
         label.font = TT.font(.paragraph)
         
+        label.textColor = FontType.paragraph.color
+        
         label.numberOfLines = 0
         
-        label.text = "descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel descriptionLabel"
+        label.text = "A man in medical distress and his adopted cocker spaniel face life's challenges together."
         
         return label
     }()
@@ -56,6 +62,8 @@ class ListBookCell: UITableViewCell {
         let label = BadgeLabel()
         
         label.font = TT.font(.secondary)
+        
+        label.textColor = FontType.paragraph.color
         
         label.text = " L 15.0  "
         
@@ -126,9 +134,9 @@ class ListBookCell: UITableViewCell {
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: TT.verticalInset / 2),
+            priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: TT.verticalInset),
             priceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(TT.verticalInset) * 2)
+            priceLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -TT.verticalInset)
         ])
     }
 }
