@@ -13,7 +13,7 @@ extension APIModel {
         
         let status, copyright: String
         let numResults: Int
-        let results: [BookItem]
+        let results: [Book]
 
         enum CodingKeys: String, CodingKey {
             
@@ -23,7 +23,7 @@ extension APIModel {
         }
     }
 
-    struct BookItem: Codable {
+    struct Book: Codable {
         
         let title: String
         let resultDescription: String?
