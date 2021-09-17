@@ -110,10 +110,6 @@ class BookListViewController: UIViewController {
         }
     }
     
-    private func append() {
-        
-    }
-    
     private func showMessage(_ message: String?) {
         // TODO
     }
