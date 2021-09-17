@@ -7,7 +7,12 @@
 
 import Foundation
 
-class BookProvider {
+protocol BookProviderProtocol {
+    
+    func getList(page: Int, completion: @escaping (Result<APIModel.Books, HTTPClientError>) -> Void)
+}
+
+class BookProvider: BookProviderProtocol {
     
     func getList(page: Int = 0, completion: @escaping (Result<APIModel.Books, HTTPClientError>) -> Void) {
         
