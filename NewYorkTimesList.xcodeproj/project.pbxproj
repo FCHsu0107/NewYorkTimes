@@ -14,6 +14,8 @@
 		B9890B6026F4926200CECF45 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5F26F4926200CECF45 /* String+Ext.swift */; };
 		B9890B6226F4979600CECF45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6126F4979600CECF45 /* URLSessionProtocol.swift */; };
 		B9890B6426F497C000CECF45 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6326F497C000CECF45 /* HTTPClientProtocol.swift */; };
+		B9890B6726F51A4800CECF45 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6626F51A4800CECF45 /* LoginViewController.swift */; };
+		B9890B6B26F51B6600CECF45 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6A26F51B6600CECF45 /* LoginPageViewModel.swift */; };
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
@@ -57,6 +59,8 @@
 		B9890B5F26F4926200CECF45 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		B9890B6126F4979600CECF45 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		B9890B6326F497C000CECF45 /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
+		B9890B6626F51A4800CECF45 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B9890B6A26F51B6600CECF45 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
 		B9BAF72426F120A800F80E54 /* NewYorkTimesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF72726F120A800F80E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9BAF73026F120AB00F80E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,31 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B9890B6526F51A0B00CECF45 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B6926F51B4E00CECF45 /* ViewModel */,
+				B9890B6826F51A5000CECF45 /* Controller */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		B9890B6826F51A5000CECF45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B6626F51A4800CECF45 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9890B6926F51B4E00CECF45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B6A26F51B6600CECF45 /* LoginPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B9BAF71B26F120A800F80E54 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +190,7 @@
 				B9BAF75726F1226A00F80E54 /* Model */,
 				B9890B5526F3C57A00CECF45 /* View */,
 				B9BAF76C26F130BF00F80E54 /* ListPage */,
+				B9890B6526F51A0B00CECF45 /* LoginPage */,
 				B9BAF72726F120A800F80E54 /* AppDelegate.swift */,
 				B9BAF73026F120AB00F80E54 /* Assets.xcassets */,
 				B9890B5226F3A25100CECF45 /* Supporting Files */,
@@ -395,6 +425,7 @@
 				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
 				B9890B5426F3A4BC00CECF45 /* BookListPresenter.swift in Sources */,
+				B9890B6726F51A4800CECF45 /* LoginViewController.swift in Sources */,
 				B9890B6426F497C000CECF45 /* HTTPClientProtocol.swift in Sources */,
 				B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */,
 				B9BAF76226F1298000F80E54 /* Book.swift in Sources */,
@@ -403,6 +434,7 @@
 				B9890B6226F4979600CECF45 /* URLSessionProtocol.swift in Sources */,
 				B9BAF76A26F12EEE00F80E54 /* TableView+Ext.swift in Sources */,
 				B9BAF77426F1329700F80E54 /* APIContent.swift in Sources */,
+				B9890B6B26F51B6600CECF45 /* LoginPageViewModel.swift in Sources */,
 				B9890B5A26F3C5EF00CECF45 /* TheTheme.swift in Sources */,
 				B9BAF75A26F1228F00F80E54 /* HTTPClient.swift in Sources */,
 				B9890B5826F3C5BB00CECF45 /* ShadowView.swift in Sources */,
