@@ -7,69 +7,38 @@
 
 import Foundation
 
-enum HTTPClientError: Error {
-    
-    case requestError
-    
-    case decodeError
-    
-    case clientError(Data)
-    
-    case serverError(message: String)
-    
-    case unexpectedError
-}
 
-enum HTTPMethod: String {
-    
-    case GET
-    
-    case POST
-    
-    case DELETE
-    
-    case PUT
-}
-
-protocol HTTPRequest {
-    
-    var baseUrlKey: String { get }
-    
-    var method: String { get }
-    
-    var path: String { get }
-    
-    var headers: [String: String] { get }
-    
-    var body: [String: Any]? { get }
-    
-    var params: [String: String]? { get }
-}
 
 class HTTPClient {
     
     static let shared = HTTPClient()
     
-    private let decoder = JSONDecoder()
+    private let session: URLSessionProtocol
     
-    private let encoder = JSONEncoder()
+    init(session: URLSessionProtocol = URLSession.shared) {
+        
+        self.session = session
+    }
     
-    private init() { }
-    
-    func request(_ hpptRequest: HTTPRequest, completion: @escaping (Result<Data, HTTPClientError>) -> Void) {
+    func request(_ hpptRequest: HTTPRequest, completion: @escaping (HTTPClientProtocol.Result) -> Void) {
         
         guard let request = makeRequest(hpptRequest) else { return completion(Result.failure(HTTPClientError.requestError)) }
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        session.dataTask(with: request) { data, response, error in
             
             if let error = error {
                 
-                return completion(Result.failure(HTTPClientError.serverError(message: error.localizedDescription)))
+                return completion(Result.failure(HTTPClientError.responseError(message: error.localizedDescription)))
             }
             
-            guard let data = data, let response = response as? HTTPURLResponse else {
+            guard let data = data else {
                 
-                return completion(Result.failure(HTTPClientError.serverError(message: "Can't get correct data or response")))
+                return completion(Result.failure(HTTPClientError.responseError(message: "No data")))
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                
+                return completion(Result.failure(HTTPClientError.responseError(message: "Can't get HTTPURLResponse")))
             }
             
             let statusCode = response.statusCode
@@ -129,5 +98,4 @@ class HTTPClient {
         
         return request
     }
-    
 }

@@ -11,6 +11,9 @@
 		B9890B5826F3C5BB00CECF45 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5726F3C5BB00CECF45 /* ShadowView.swift */; };
 		B9890B5A26F3C5EF00CECF45 /* TheTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5926F3C5EF00CECF45 /* TheTheme.swift */; };
 		B9890B5C26F3CC7600CECF45 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5B26F3CC7600CECF45 /* BadgeView.swift */; };
+		B9890B6026F4926200CECF45 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B5F26F4926200CECF45 /* String+Ext.swift */; };
+		B9890B6226F4979600CECF45 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6126F4979600CECF45 /* URLSessionProtocol.swift */; };
+		B9890B6426F497C000CECF45 /* HTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6326F497C000CECF45 /* HTTPClientProtocol.swift */; };
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
@@ -51,6 +54,9 @@
 		B9890B5726F3C5BB00CECF45 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = ../../../../../../ShadowView.swift; sourceTree = "<group>"; };
 		B9890B5926F3C5EF00CECF45 /* TheTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTheme.swift; sourceTree = "<group>"; };
 		B9890B5B26F3CC7600CECF45 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		B9890B5F26F4926200CECF45 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B9890B6126F4979600CECF45 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		B9890B6326F497C000CECF45 /* HTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientProtocol.swift; sourceTree = "<group>"; };
 		B9BAF72426F120A800F80E54 /* NewYorkTimesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF72726F120A800F80E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9BAF73026F120AB00F80E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,7 +198,9 @@
 		B9BAF75826F1227100F80E54 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				B9890B6126F4979600CECF45 /* URLSessionProtocol.swift */,
 				B9BAF75926F1228F00F80E54 /* HTTPClient.swift */,
+				B9890B6326F497C000CECF45 /* HTTPClientProtocol.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				B9BAF75C26F122C400F80E54 /* Bundle+Ext.swift */,
 				B9BAF76926F12EEE00F80E54 /* TableView+Ext.swift */,
+				B9890B5F26F4926200CECF45 /* String+Ext.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -386,16 +395,19 @@
 				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
 				B9890B5426F3A4BC00CECF45 /* BookListProvider.swift in Sources */,
+				B9890B6426F497C000CECF45 /* HTTPClientProtocol.swift in Sources */,
 				B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */,
 				B9BAF76226F1298000F80E54 /* Book.swift in Sources */,
 				B9890B5C26F3CC7600CECF45 /* BadgeView.swift in Sources */,
 				B9BAF76426F12A9000F80E54 /* APIModel.swift in Sources */,
+				B9890B6226F4979600CECF45 /* URLSessionProtocol.swift in Sources */,
 				B9BAF76A26F12EEE00F80E54 /* TableView+Ext.swift in Sources */,
 				B9BAF77426F1329700F80E54 /* APIContent.swift in Sources */,
 				B9890B5A26F3C5EF00CECF45 /* TheTheme.swift in Sources */,
 				B9BAF75A26F1228F00F80E54 /* HTTPClient.swift in Sources */,
 				B9890B5826F3C5BB00CECF45 /* ShadowView.swift in Sources */,
 				B9BAF77226F1324C00F80E54 /* BookRequest.swift in Sources */,
+				B9890B6026F4926200CECF45 /* String+Ext.swift in Sources */,
 				B9BAF76826F12B5400F80E54 /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
