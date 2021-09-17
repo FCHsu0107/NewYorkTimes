@@ -20,6 +20,8 @@ class BookListViewController: UIViewController {
     
     private let threshold: CGFloat = UIScreen.main.bounds.height / 3
     
+    private var expandedItem: Int?
+    
 //    deinit { print("\(self.className) deint") }
     
     init(presenter: BookListPresenter = BookListPresenter()) {
@@ -88,8 +90,6 @@ class BookListViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.separatorStyle = .none
-        
-        tableView.allowsSelection = false
         
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -179,6 +179,28 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer { tableView.deselectRow(at: indexPath, animated: false) }
+        
+        let item = items[indexPath.row]
+        
+        if let index = expandedItem,
+           let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? ListBookCell {
+            cell.descriptionLabel.text = items[index].previusPartOfDescription ?? ""
+        }
+        
+        guard item.showPartDescription,
+              item.description.count > 0,
+              let cell = tableView.cellForRow(at: indexPath) as? ListBookCell else { return }
+        
+        cell.descriptionLabel.text = items[indexPath.row].description
+        
+        expandedItem = indexPath.row
+        
+        tableView.performBatchUpdates({}, completion: nil)
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
