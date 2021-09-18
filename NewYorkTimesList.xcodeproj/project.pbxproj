@@ -18,6 +18,7 @@
 		B9890B6B26F51B6600CECF45 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6A26F51B6600CECF45 /* LoginPageViewModel.swift */; };
 		B9890B6E26F522F100CECF45 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6D26F522F100CECF45 /* LoginManager.swift */; };
 		B9890B7026F52ADC00CECF45 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6F26F52ADC00CECF45 /* UIViewController+Ext.swift */; };
+		B9890B7526F5C57D00CECF45 /* UIAlertAction+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B7426F5C57D00CECF45 /* UIAlertAction+Ext.swift */; };
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 		B9890B6A26F51B6600CECF45 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
 		B9890B6D26F522F100CECF45 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		B9890B6F26F52ADC00CECF45 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		B9890B7426F5C57D00CECF45 /* UIAlertAction+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Ext.swift"; sourceTree = "<group>"; };
 		B9BAF72426F120A800F80E54 /* NewYorkTimesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF72726F120A800F80E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9BAF73026F120AB00F80E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				B9BAF76926F12EEE00F80E54 /* TableView+Ext.swift */,
 				B9890B5F26F4926200CECF45 /* String+Ext.swift */,
 				B9890B6F26F52ADC00CECF45 /* UIViewController+Ext.swift */,
+				B9890B7426F5C57D00CECF45 /* UIAlertAction+Ext.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			files = (
 				B9BAF76E26F130EE00F80E54 /* ListBookCell.swift in Sources */,
 				B9BAF77026F1322000F80E54 /* BookProvider.swift in Sources */,
+				B9890B7526F5C57D00CECF45 /* UIAlertAction+Ext.swift in Sources */,
 				B9890B6E26F522F100CECF45 /* LoginManager.swift in Sources */,
 				B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */,
 				B9890B5426F3A4BC00CECF45 /* BookListPresenter.swift in Sources */,

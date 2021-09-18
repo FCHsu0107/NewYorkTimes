@@ -52,7 +52,36 @@ class LoginViewController: UIViewController {
         return btn
     }()
     
+    lazy var biometricsView: UIImageView = {
+        
+        var view = UIImageView()
+        
+        view.contentMode = .scaleAspectFit
+        
+        view.image = UIImage(named: "biometrics")
+        
+        view.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_ :)))
+        
+        tapGesture = tap
+        
+        view.addGestureRecognizer(tap)
+        
+        return view
+    }()
+    
+    var tapGesture: UITapGestureRecognizer?
+    
     var viewModel: ViewModel
+    
+    deinit {
+        
+        if let tap = tapGesture {
+            
+            biometricsView.removeGestureRecognizer(tap)
+        }
+    }
     
     init() {
         
@@ -82,7 +111,7 @@ class LoginViewController: UIViewController {
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            userNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            userNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: TT.sideInset),
             userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -TT.sideInset)
         ])
@@ -107,6 +136,19 @@ class LoginViewController: UIViewController {
             loginButton.widthAnchor.constraint(equalToConstant: 120),
             loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+//        guard viewModel.supportBiometrics() else { return }
+        
+        view.addSubview(biometricsView)
+        
+        biometricsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            biometricsView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 40),
+            biometricsView.leadingAnchor.constraint(equalTo: userNameTextField.leadingAnchor),
+            biometricsView.trailingAnchor.constraint(equalTo: userNameTextField.trailingAnchor),
+            biometricsView.heightAnchor.constraint(equalTo: biometricsView.widthAnchor, multiplier: 0.67)
+        ])
     }
     
     @objc func loginBtnDidClick(_ sender: UIButton) {
@@ -117,6 +159,22 @@ class LoginViewController: UIViewController {
         
         viewModel.login(userName: userName, password: password)
     }
+    
+    @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        
+        if viewModel.supportBiometrics() {
+            viewModel.loginWithBiometrics()
+        } else {
+            self.popAlert(
+                title: "Biometrics unavailable",
+                message: "Your device is not configured for biometric authentication",
+                actions: [UIAlertAction.okAction()]
+            )
+        }
+        
+        print("JQ loginWithBiometrics ")
+        
+    }
 }
 
 extension LoginViewController {
@@ -126,6 +184,11 @@ extension LoginViewController {
         viewModel.loginDidSucced = { [weak self] in
             
             self?.switchToBookListPage()
+        }
+        
+        viewModel.errorDidRevice = { [weak self] message in
+            
+            self?.popAlert(title: "Error", message: message, actions: [UIAlertAction.okAction()])
         }
     }
     
