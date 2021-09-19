@@ -9,7 +9,7 @@ import Foundation
 
 
 
-class HTTPClient {
+class HTTPClient: HTTPClientProtocol {
     
     static let shared = HTTPClient()
     
