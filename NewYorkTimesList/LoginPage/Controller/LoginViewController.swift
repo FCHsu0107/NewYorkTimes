@@ -71,6 +71,20 @@ class LoginViewController: UIViewController {
         return view
     }()
     
+    private lazy var loadingIndicator: UIActivityIndicatorView = {
+        
+        let indicator = UIActivityIndicatorView()
+        
+        indicator.style = .large
+        
+        indicator.color = .black
+        
+        indicator.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
+            
+        return indicator
+    }()
+    
+    
     var tapGesture: UITapGestureRecognizer?
     
     var viewModel: ViewModel
@@ -151,7 +165,8 @@ class LoginViewController: UIViewController {
     
     @objc func loginBtnDidClick(_ sender: UIButton) {
         
-        guard let userName = userNameTextField.text, let password = passwordTextField.text else {
+        guard let userName = userNameTextField.text, !userName.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
             return popAlert(
                 title: "Error",
                 message: "User name or password connot be empty!",
@@ -159,22 +174,26 @@ class LoginViewController: UIViewController {
             )
         }
         
+        loadingIndicator.startAnimating()
+        
         viewModel.login(userName: userName, password: password)
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         
         if viewModel.supportBiometrics() {
+            
+            loadingIndicator.startAnimating()
+            
             viewModel.loginWithBiometrics()
         } else {
+            
             self.popAlert(
                 title: "Biometrics unavailable",
                 message: "Your device is not configured for biometric authentication",
                 actions: [UIAlertAction.okAction()]
             )
         }
-        
-        print("JQ loginWithBiometrics ")
     }
 }
 
@@ -185,6 +204,8 @@ extension LoginViewController {
         viewModel.loginDidSucced = {
             
             DispatchQueue.main.async { [weak self] in
+                
+                self?.loadingIndicator.stopAnimating()
             
                 self?.switchToBookListPage()
             }
@@ -194,13 +215,15 @@ extension LoginViewController {
             
             DispatchQueue.main.async { [weak self] in
                 
+                self?.loadingIndicator.stopAnimating()
+                
                 self?.popAlert(title: "Error", message: message, actions: [UIAlertAction.okAction()])
             }
         }
     }
     
     func switchToBookListPage() {
-        print("switchToBookListPage")
+        
         guard let window = self.window else { return }
         
         window.rootViewController = UINavigationController(rootViewController: BookListViewController())
