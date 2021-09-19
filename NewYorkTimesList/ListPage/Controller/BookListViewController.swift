@@ -115,7 +115,13 @@ class BookListViewController: UIViewController {
     }
     
     private func showMessage(_ message: String?) {
-        // TODO
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            guard let self = self else { return }
+            
+            self.popAlert(title: "Error", message: message ?? "", actions: UIAlertAction.okAction())
+        }
     }
     
     private func loadMoreData() {
