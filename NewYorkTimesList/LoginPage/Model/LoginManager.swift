@@ -42,7 +42,9 @@ class LoginManager {
         
         var error: NSError?
         
-        return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        let hasTokenInKeyChain: Bool = true // TODO
+        
+        return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) && hasTokenInKeyChain
     }
     
     func authenticateWithBiometrics(completion: @escaping (Result<Bool, Error>) -> Void) {
