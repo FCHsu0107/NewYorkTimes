@@ -10,13 +10,21 @@ import LocalAuthentication
 
 class LoginManager {
     
+    static let shared = LoginManager()
+    
     private lazy var context = LAContext()
+    
+    private(set) var status: Bool = false
+    
+    private init() {}
     
     func login(userName: String, password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         // Check data with server //
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             
             if userName == "AAA", password == "123" {
+                
+                self.status = true
                 
                 completion(Result.success(true))
                 
@@ -41,12 +49,14 @@ class LoginManager {
         
         let reason = "Log in by face ID or touch ID"
         
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
             
             if let error = authenticationError {
                 
                 return completion(.failure(error))
             }
+            
+            self?.status = true
             
             completion(.success(success))
         }

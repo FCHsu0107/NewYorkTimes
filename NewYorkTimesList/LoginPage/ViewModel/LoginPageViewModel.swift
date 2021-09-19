@@ -33,7 +33,7 @@ public final class LoginPageViewModel: LoginPageViewModelOutput {
     
     private let manager: LoginManager
     
-    init(manager: LoginManager = LoginManager()) {
+    init(manager: LoginManager = LoginManager.shared) {
         
         self.manager = manager
     }

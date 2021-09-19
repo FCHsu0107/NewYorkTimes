@@ -10,24 +10,31 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UISceneDelegate {
     
-    lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
         setUpMainWindow()
+        
         return true
     }
     
-    @available(iOS 13.0, *)
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let windowScene = scene as? UIWindowScene {
-            self.window = UIWindow(windowScene: windowScene)
-            setUpMainWindow()
-        }
+    static func getRootVC() -> UIViewController {
+        
+        let rootViewController = LoginManager.shared.status ?
+            UINavigationController(rootViewController: BookListViewController()) : LoginViewController()
+        
+        return rootViewController
     }
-
-    private func setUpMainWindow() {
-        let vc = UINavigationController(rootViewController: BookListViewController())
-        window?.makeKeyAndVisible()
+    
+    func setUpMainWindow() {
+        
+        let vc = AppDelegate.getRootVC()
+        
         window?.rootViewController = vc
+        
+        window?.makeKeyAndVisible()
     }
 }

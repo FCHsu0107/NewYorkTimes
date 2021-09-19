@@ -137,8 +137,6 @@ class LoginViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
         
-//        guard viewModel.supportBiometrics() else { return }
-        
         view.addSubview(biometricsView)
         
         biometricsView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +152,11 @@ class LoginViewController: UIViewController {
     @objc func loginBtnDidClick(_ sender: UIButton) {
         
         guard let userName = userNameTextField.text, let password = passwordTextField.text else {
-            return // TODO pop alert
+            return popAlert(
+                title: "Error",
+                message: "User name or password connot be empty!",
+                actions:[ UIAlertAction.okAction()]
+            )
         }
         
         viewModel.login(userName: userName, password: password)
@@ -173,7 +175,6 @@ class LoginViewController: UIViewController {
         }
         
         print("JQ loginWithBiometrics ")
-        
     }
 }
 
@@ -181,18 +182,29 @@ extension LoginViewController {
     
     func viewModelDataBinding() {
         
-        viewModel.loginDidSucced = { [weak self] in
+        viewModel.loginDidSucced = {
             
-            self?.switchToBookListPage()
+            DispatchQueue.main.async { [weak self] in
+            
+                self?.switchToBookListPage()
+            }
         }
         
-        viewModel.errorDidRevice = { [weak self] message in
+        viewModel.errorDidRevice = { message in
             
-            self?.popAlert(title: "Error", message: message, actions: [UIAlertAction.okAction()])
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.popAlert(title: "Error", message: message, actions: [UIAlertAction.okAction()])
+            }
         }
     }
     
     func switchToBookListPage() {
-        // TODO
+        print("switchToBookListPage")
+        guard let window = self.window else { return }
+        
+        window.rootViewController = UINavigationController(rootViewController: BookListViewController())
+        
+        UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
     }
 }
