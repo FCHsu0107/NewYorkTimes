@@ -56,6 +56,10 @@ class BookListViewController: UIViewController {
                 
                 self.reloadData()
                 
+                guard !self.isLoading  else { return }
+                
+                self.loadMoreData()
+                
             case false:
                 
                 self.showMessage(result.errorMessage)
