@@ -30,7 +30,6 @@
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
-		B9BAF73F26F120AB00F80E54 /* NewYorkTimesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */; };
 		B9BAF74A26F120AB00F80E54 /* NewYorkTimesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF74926F120AB00F80E54 /* NewYorkTimesListUITests.swift */; };
 		B9BAF75A26F1228F00F80E54 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF75926F1228F00F80E54 /* HTTPClient.swift */; };
 		B9BAF75D26F122C400F80E54 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF75C26F122C400F80E54 /* Bundle+Ext.swift */; };
@@ -89,7 +88,6 @@
 		B9BAF73326F120AB00F80E54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9BAF73526F120AB00F80E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "NewYorkTimesList/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		B9BAF73A26F120AB00F80E54 /* NewYorkTimesListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewYorkTimesListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesListTests.swift; sourceTree = "<group>"; };
 		B9BAF74026F120AB00F80E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9BAF74526F120AB00F80E54 /* NewYorkTimesListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewYorkTimesListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF74926F120AB00F80E54 /* NewYorkTimesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesListUITests.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				B9890B7D26F77A9C00CECF45 /* FakeData */,
 				B9890B8026F77AA800CECF45 /* MockClass */,
 				B9890B7826F77A9300CECF45 /* APITest */,
-				B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */,
 				B9BAF74026F120AB00F80E54 /* Info.plist */,
 			);
 			path = NewYorkTimesListTests;
@@ -521,7 +518,6 @@
 				B9890B8826F77AA800CECF45 /* MockURLSession.swift in Sources */,
 				B9890B7C26F77A9300CECF45 /* HTTPClientTest.swift in Sources */,
 				B9890B8A26F77AA800CECF45 /* MockHTTPRequest.swift in Sources */,
-				B9BAF73F26F120AB00F80E54 /* NewYorkTimesListTests.swift in Sources */,
 				B9890B8626F77AA800CECF45 /* HTTPTestClient.swift in Sources */,
 				B9890B7B26F77A9300CECF45 /* BreedProviderTest.swift in Sources */,
 				B9890B8926F77AA800CECF45 /* MockURLSessionDataTask.swift in Sources */,
