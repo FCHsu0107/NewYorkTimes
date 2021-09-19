@@ -20,6 +20,13 @@
 		B9890B7026F52ADC00CECF45 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B6F26F52ADC00CECF45 /* UIViewController+Ext.swift */; };
 		B9890B7526F5C57D00CECF45 /* UIAlertAction+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B7426F5C57D00CECF45 /* UIAlertAction+Ext.swift */; };
 		B9890B7726F744C400CECF45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B7626F744C400CECF45 /* SceneDelegate.swift */; };
+		B9890B7B26F77A9300CECF45 /* BreedProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B7926F77A9300CECF45 /* BreedProviderTest.swift */; };
+		B9890B7C26F77A9300CECF45 /* HTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B7A26F77A9300CECF45 /* HTTPClientTest.swift */; };
+		B9890B7F26F77A9C00CECF45 /* Books.json in Resources */ = {isa = PBXBuildFile; fileRef = B9890B7E26F77A9C00CECF45 /* Books.json */; };
+		B9890B8626F77AA800CECF45 /* HTTPTestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B8126F77AA800CECF45 /* HTTPTestClient.swift */; };
+		B9890B8826F77AA800CECF45 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B8326F77AA800CECF45 /* MockURLSession.swift */; };
+		B9890B8926F77AA800CECF45 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B8426F77AA800CECF45 /* MockURLSessionDataTask.swift */; };
+		B9890B8A26F77AA800CECF45 /* MockHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9890B8526F77AA800CECF45 /* MockHTTPRequest.swift */; };
 		B9BAF72826F120A800F80E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BAF72726F120A800F80E54 /* AppDelegate.swift */; };
 		B9BAF73126F120AB00F80E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73026F120AB00F80E54 /* Assets.xcassets */; };
 		B9BAF73426F120AB00F80E54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BAF73226F120AB00F80E54 /* LaunchScreen.storyboard */; };
@@ -69,6 +76,13 @@
 		B9890B6F26F52ADC00CECF45 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		B9890B7426F5C57D00CECF45 /* UIAlertAction+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Ext.swift"; sourceTree = "<group>"; };
 		B9890B7626F744C400CECF45 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B9890B7926F77A9300CECF45 /* BreedProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedProviderTest.swift; sourceTree = "<group>"; };
+		B9890B7A26F77A9300CECF45 /* HTTPClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientTest.swift; sourceTree = "<group>"; };
+		B9890B7E26F77A9C00CECF45 /* Books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Books.json; sourceTree = "<group>"; };
+		B9890B8126F77AA800CECF45 /* HTTPTestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTestClient.swift; sourceTree = "<group>"; };
+		B9890B8326F77AA800CECF45 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		B9890B8426F77AA800CECF45 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		B9890B8526F77AA800CECF45 /* MockHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHTTPRequest.swift; sourceTree = "<group>"; };
 		B9BAF72426F120A800F80E54 /* NewYorkTimesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BAF72726F120A800F80E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9BAF73026F120AB00F80E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +194,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B9890B7826F77A9300CECF45 /* APITest */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B7A26F77A9300CECF45 /* HTTPClientTest.swift */,
+				B9890B7926F77A9300CECF45 /* BreedProviderTest.swift */,
+			);
+			path = APITest;
+			sourceTree = "<group>";
+		};
+		B9890B7D26F77A9C00CECF45 /* FakeData */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B7E26F77A9C00CECF45 /* Books.json */,
+			);
+			path = FakeData;
+			sourceTree = "<group>";
+		};
+		B9890B8026F77AA800CECF45 /* MockClass */ = {
+			isa = PBXGroup;
+			children = (
+				B9890B8126F77AA800CECF45 /* HTTPTestClient.swift */,
+				B9890B8326F77AA800CECF45 /* MockURLSession.swift */,
+				B9890B8426F77AA800CECF45 /* MockURLSessionDataTask.swift */,
+				B9890B8526F77AA800CECF45 /* MockHTTPRequest.swift */,
+			);
+			path = MockClass;
+			sourceTree = "<group>";
+		};
 		B9BAF71B26F120A800F80E54 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +261,9 @@
 		B9BAF73D26F120AB00F80E54 /* NewYorkTimesListTests */ = {
 			isa = PBXGroup;
 			children = (
+				B9890B7D26F77A9C00CECF45 /* FakeData */,
+				B9890B8026F77AA800CECF45 /* MockClass */,
+				B9890B7826F77A9300CECF45 /* APITest */,
 				B9BAF73E26F120AB00F80E54 /* NewYorkTimesListTests.swift */,
 				B9BAF74026F120AB00F80E54 /* Info.plist */,
 			);
@@ -424,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9890B7F26F77A9C00CECF45 /* Books.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +518,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9890B8826F77AA800CECF45 /* MockURLSession.swift in Sources */,
+				B9890B7C26F77A9300CECF45 /* HTTPClientTest.swift in Sources */,
+				B9890B8A26F77AA800CECF45 /* MockHTTPRequest.swift in Sources */,
 				B9BAF73F26F120AB00F80E54 /* NewYorkTimesListTests.swift in Sources */,
+				B9890B8626F77AA800CECF45 /* HTTPTestClient.swift in Sources */,
+				B9890B7B26F77A9300CECF45 /* BreedProviderTest.swift in Sources */,
+				B9890B8926F77AA800CECF45 /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,9 +14,16 @@ protocol BookProviderProtocol {
 
 class BookProvider: BookProviderProtocol {
     
+    private let client: HTTPClientProtocol
+    
+    init(client: HTTPClientProtocol = HTTPClient.shared) {
+        
+        self.client = client
+    }
+    
     func getList(page: Int = 0, completion: @escaping (Result<APIModel.Books, HTTPClientError>) -> Void) {
         
-        HTTPClient.shared.request(BookRequest.bestSellers(page: page)) { result in
+        client.request(BookRequest.bestSellers(page: page)) { result in
             
             switch result {
             
