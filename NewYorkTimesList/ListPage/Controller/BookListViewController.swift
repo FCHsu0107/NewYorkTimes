@@ -120,7 +120,7 @@ class BookListViewController: UIViewController {
             
             guard let self = self else { return }
             
-            self.popAlert(title: "Error", message: message ?? "", actions: UIAlertAction.okAction())
+            self.popAlert(title: "Error", message: message ?? "", actions: [UIAlertAction.okAction()])
         }
     }
     
